@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="JavaScript Form Validation">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <title>JavaScript Form Validation</title>
+</head>
+<body>
+    <h2 class="heading">JavaScript Form Validation</h2>
+    <div class="main">
+        <header>
+            <h2>Create Account</h2>
+        </header>
+        <form action="" id="form">
+            <div class="form-control">
+                <label for="username">Username</label>
+                <input type="text" name="Username" id="username" placeholder="Enter Username" />
+                <small >Username is required.</small>
+            </div>
+
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="text" name="Email" id="email" placeholder="Enter Email" />
+                <small >Email is required</small>
+            </div>
+
+            <div class="form-control pass">
+                <label for="password">Password</label>
+                <input type="password" name="Password" id="password" placeholder="Password" />
+                <i class="far fa-eye" id="togglePassword"></i>
+                <small >Password is required</small>
+            </div>
+
+            <div class="form-control pass">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" name="Confirm-password" id="confirm-password" placeholder="Confirm Password"/>
+                <small >Enter valid password.</small>
+            </div>
+
+            <div class="sub">
+                <button class="btn-submit" type="submit" id="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
