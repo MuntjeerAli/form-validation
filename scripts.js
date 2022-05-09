@@ -55,7 +55,7 @@ const checkLength = function(input, min, max) {
     if (input.value.trim().length < min) {
         showError(input, `${input.name} must contain ${min} characters`);
     } else if (input.value.trim().length > max) {
-        showError(inout, `${input.name} must be less than ${max} characters`);
+        showError(input, `${input.name} must be less than ${max} characters`);
     } else{
         showSuccess(input);
     }
@@ -68,11 +68,3 @@ form.addEventListener('submit', (e) => {
     checkLength(password, 5, 8);
     checkPassword(password, confirmPassword)
 })
-// form.addEventListener('submit', function (event) {
-//     event.preventDefault();
-//     if (username.value.trim() === '') {
-//         showError(username, 'Username is required');
-//     } else{
-//         showSuccess(input);
-//     }
-// });
