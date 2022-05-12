@@ -3,10 +3,34 @@
 const form = document.getElementById('form');
 const username = document.getElementById('username');
 const email = document.getElementById('email');
+const mobile = document.getElementById('mobile');
 const password = document.getElementById('password');
 const confirmPassword = document.getElementById('confirm-password');
-const inputArr = [username, email, password, confirmPassword];
+const inputArr = [username, email, mobile, password, confirmPassword];
 
+
+const checkEmail = function(input){
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(String(input.value).toLowerCase().trim())){
+        showSuccess(input)
+    } else {
+        showError(input, 'Email is not valid');
+    }
+}
+
+const checkMobile = function(input){
+    let no = /^(\+\d{1,3}[- ]?)?\d{10}$/;
+    if(no.test(String(input.value).trim())) {
+        showSuccess(input);
+    } else {
+        showError(input, 'Enter valid mobile number');
+    }
+}
+
+const message = function(input) {
+    const errorMessage = input.name.replace(/-p/, ' P');
+    return errorMessage.charAt(0).toUpperCase() + errorMessage.slice(1);
+}
 
 const showError = function (input, message) {
     let formControl = input.parentElement;
@@ -23,7 +47,7 @@ const showSuccess = function(input) {
 const checkRequired = function(inputArr){
     inputArr.forEach(input => {
         if(input.value.trim() === '') {
-            showError(input, `${input.name} is required.`);
+            showError(input, `${message(input)} is required.`);
             return;
         } else{
             showSuccess(input);
@@ -53,9 +77,9 @@ const checkPassword = function(input1, input2){
 
 const checkLength = function(input, min, max) {
     if (input.value.trim().length < min) {
-        showError(input, `${input.name} must contain ${min} characters`);
+        showError(input, `${message(input)} must contain ${min} characters`);
     } else if (input.value.trim().length > max) {
-        showError(input, `${input.name} must be less than ${max} characters`);
+        showError(input, `${message(input)} must be less than ${max} characters`);
     } else{
         showSuccess(input);
     }
@@ -66,5 +90,12 @@ form.addEventListener('submit', (e) => {
     checkRequired(inputArr);
     checkLength(username, 5, 12);
     checkLength(password, 5, 8);
+    checkEmail(email);
+    checkMobile(mobile);
     checkPassword(password, confirmPassword)
 })
+
+//RegEx ; Regular Expression
+//pattern, flags
+//add mobile number, validate, indian pattern, length
+//text area limit of 300 character - should be showing live character count
