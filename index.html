@@ -46,6 +46,13 @@
                 <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password"/>
                 <small >Enter valid password.</small>
             </div>
+            <div class="form-control text">
+                <label for="text-area">Add text</label>
+                <input class="text-length" type="text" placeholder="Enter text" disabled maxlength="3" size="3" value="300" id="counter" />
+                <textarea title="text" onkeyup="textCounter(this,'counter', 300);" id="text-input">
+                </textarea>
+            </div>
+            
 
             <div class="sub">
                 <button class="btn-submit" type="submit" id="submit">Submit</button>

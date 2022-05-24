@@ -64,6 +64,15 @@ small{
 .sub{
     padding-top: 1.5rem;
 }
+.text{
+    display: flex;
+    flex-direction: column;
+}
+.text-length{
+    width: 2rem;
+    position: relative;
+    right: 0;
+}
 
 .btn-submit{
     border: none;
